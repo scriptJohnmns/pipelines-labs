@@ -1,4 +1,4 @@
-name: "Estrutura de dirs e Files"
+name: "Lab 01 - Estrutura de Diretórios e Arquivos"
 
 on:
   push:
@@ -9,16 +9,32 @@ env:
   NODE_VERSION: "18"
 
 jobs:
-  demo_estrutura:
-    name: "Demo Estrutura Basica"
+  demonstrar-estrutura:
+    name: "Demonstrar Estrutura Básica"
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout do codigo
-      uses: actions/checkout@v4
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4 # Usa action pré-construída
 
-    - name: mosrtar_estutura
-      run: |
-        echo " == Estrutura de dirs e arquivos .github/workflows =="
-        ls -la .github/workflows
-        echo " Total de files: $(ls -1 .github/workflows | wc -l)"
+      - name: Mostrar estrutura .github/workflows
+        run: | # Executa comandos shell
+          echo "=== ESTRUTURA DO DIRETÓRIO .github/workflows ==="
+          ls -la .github/workflows/
+          echo ""
+          echo "Total de workflows: $(ls -1 .github/workflows/*.y*ml 2>/dev/null | wc -l)"
+
+      - name: Elementos obrigatórios do workflow
+        run: |
+          echo "=== ELEMENTOS OBRIGATÓRIOS ==="
+          echo "1. name: Nome do workflow"
+          echo "2. on: Eventos de trigger (push, workflow_dispatch)"
+          echo "3. jobs: Tarefas a executar"
+
+      - name: Variáveis e contextos
+        run: |
+          echo "=== VARIÁVEIS E CONTEXTOS ==="
+          echo "Variável env: ${{ env.NODE_VERSION }}"      # Acessa variável de ambiente
+          echo "Repositório: ${{ github.repository }}"      # Contexto do GitHub
+          echo "Branch: ${{ github.ref_name }}"             # Nome da branch
+          echo "Actor: ${{ github.actor }}"                 # Usuário que executou
