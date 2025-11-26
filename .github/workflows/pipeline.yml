@@ -1,0 +1,24 @@
+name: "Estrutura de dirs e Files"
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: "18"
+
+jobs:
+  demo_estrutura:
+    name: "Demo Estrutura Basica"
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout do codigo
+      uses: actions/checkout@v4
+
+    - name: mosrtar_estutura
+      run: |
+        echo " == Estrutura de dirs e arquivos .github/workflows =="
+        ls -la .github/workflows
+        echo " Total de files: $(ls -1 .github/workflows | wc -l)"
