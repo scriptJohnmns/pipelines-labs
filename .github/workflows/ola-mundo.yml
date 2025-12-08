@@ -1,6 +1,7 @@
- name: First Workflow
+name: First Workflow
 
-on: push
+on:
+  push
 
 jobs:
   meu-job-de-teste:
