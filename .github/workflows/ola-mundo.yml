@@ -11,5 +11,8 @@ jobs:
       - name: Diga Ola
         run: echo "Ola Mundo"
 
+      - name: show dir
+        run: pwd
+
       - name: Listar arquivos
         run: ls -la
