@@ -6,6 +6,10 @@ on:
 jobs:
   meu-job-de-teste1:
     runs-on: ubuntu-latest
+
     steps:
       - name: Diga Ola
         run: echo "Ola Mundo"
+
+      - name: Listar arquivos
+        run: ls -la
