@@ -1,0 +1,10 @@
+ name: First Workflow
+
+on: push
+
+jobs:
+  meu-job-de-teste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Diga Ola
+        run: echo "Ola Mundo"
